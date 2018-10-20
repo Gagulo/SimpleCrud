@@ -21,18 +21,23 @@ namespace SimpleCrud.Repositories
         },
              new User()
         {
-            Id = 1,
+            Id = 2,
             FirstName = "Ania",
             LastName = "Jakas",
             DateOfBirth = new DateTime(1990,10,5)
         }
         };
 
+        private long GenerateKey()
+        {
+            return _users.Max(u => u.Id) + 1;
+        }
 
         public void Add(AddUserModel userModel)
         {
             var user = new User
             {
+                Id = GenerateKey(),
                 FirstName = userModel.FirstName,
                 LastName = userModel.LastName,
                 DateOfBirth = userModel.DateOfBirth,
@@ -46,6 +51,8 @@ namespace SimpleCrud.Repositories
         {
             return _users.Select(u => new UserModel
             {
+                Id = u.Id,
+
                 FullName = string.Format("{0} {1}", u.FirstName, u.LastName),
                 Age = DateTime.Now.Year - u.DateOfBirth.Year,
                 IsActiveAsString = u.IsActive ? "Yes" : "No"
@@ -53,20 +60,26 @@ namespace SimpleCrud.Repositories
             .ToList();
         }
 
-        public User GetUser(long id)
+        public EditUserModel GetUser(long id)
         {
-            return _users.SingleOrDefault(u => u.Id == id);
+            return _users.Select(u => new EditUserModel
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                IsActive = u.IsActive
+            })
+            .SingleOrDefault(u => u.Id == id);
         }
 
-        public void Update(User user)
+        public void Update(EditUserModel model)
         {
-            var userToUpdate = _users.Single(u => u.Id == user.Id);
+            var userToUpdate = _users.Single(u => u.Id == model.Id);
+            
+            userToUpdate.FirstName = model.FirstName;
+            userToUpdate.LastName = model.LastName;
 
-            userToUpdate.DateOfBirth = user.DateOfBirth;
-            userToUpdate.FirstName = user.FirstName;
-            userToUpdate.LastName = user.LastName;
-
-            userToUpdate.IsActive = user.IsActive;
+            userToUpdate.IsActive = model.IsActive;
         }
     }
 }

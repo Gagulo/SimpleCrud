@@ -17,13 +17,28 @@ namespace SimpleCrud.Controllers
 
         public ActionResult Edit(long id)
         {
-            return View();
+            var model = _repository.GetUser(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditUserModel model)
+        {
+            _repository.Update(model);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Add()
         {
             var model = new AddUserModel();
             return View(model);
+        }
+        [HttpPost]
+        public ActionResult Add(AddUserModel model)
+        {
+            _repository.Add(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

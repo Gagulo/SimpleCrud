@@ -2,7 +2,6 @@
 @using SimpleCrud.Models
 
 <a href="@Url.Action("Add")" class="btn btn-primary" style="margin-top: 10px;">Add User</a>
-<a href="@Url.Action("Edit")" class="btn btn-success" style="margin-top: 10px;">Edit User</a>
 
 @model IList<UserModel>
 
@@ -18,6 +17,7 @@
         @foreach(var user in Model)
         {
             <tr class="bg-default">
+                <td><a href="@Url.Action("Edit", new { user.Id })" class="btn btn-success">Edit User</a></td>
                 <td>@user.FullName</td>
                 <td>@user.Age</td>
                 <td>@user.IsActiveAsString</td>

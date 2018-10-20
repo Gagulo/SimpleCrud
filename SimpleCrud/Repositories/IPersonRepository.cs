@@ -7,9 +7,10 @@ namespace SimpleCrud.Repositories
     public interface IPersonRepository
     {
         IList<UserModel> GetAllUsers();
-        User GetUser(long id);
+
+        EditUserModel GetUser(long id);
 
         void Add(AddUserModel user);
-        void Update(User user);
+        void Update(EditUserModel userModel);
     }
 }
