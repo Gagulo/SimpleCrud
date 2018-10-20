@@ -1,0 +1,10 @@
+﻿@model long
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("id", Model)
+
+    <text>Are u sure u want to delete this user?</text>
+    <input type="submit" value="Yes" class="btn btn-danger" />
+
+}

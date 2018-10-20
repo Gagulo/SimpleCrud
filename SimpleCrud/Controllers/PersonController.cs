@@ -40,5 +40,18 @@ namespace SimpleCrud.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(long id)
+        {
+            return View(id);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(long id, object dummy)
+        {
+            _repository.Delete(id);
+
+            return RedirectToAction("Index");
+        }
     }
 }

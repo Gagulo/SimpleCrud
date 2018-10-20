@@ -202,6 +202,7 @@
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Person\Add.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

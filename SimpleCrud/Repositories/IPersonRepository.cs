@@ -12,5 +12,6 @@ namespace SimpleCrud.Repositories
 
         void Add(AddUserModel user);
         void Update(EditUserModel userModel);
+        void Delete(long id);
     }
 }

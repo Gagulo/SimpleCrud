@@ -81,5 +81,11 @@ namespace SimpleCrud.Repositories
 
             userToUpdate.IsActive = model.IsActive;
         }
+
+        public void Delete(long id)
+        {
+            var userToDelate = _users.Single(u => u.Id == id);
+            _users.Remove(userToDelate);
+        }
     }
 }
