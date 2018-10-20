@@ -6,8 +6,10 @@ using System.Web.Mvc;
 
 namespace SimpleCrud.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
