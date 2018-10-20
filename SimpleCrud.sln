@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrud", "SimpleCrud\SimpleCrud.csproj", "{B57D458F-F45E-4A6F-AABF-B26DA3E6E3AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCrud.Tests", "SimpleCrud.Tests\SimpleCrud.Tests.csproj", "{076AB0BE-D7EF-4D86-93D3-E67127F91BD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B57D458F-F45E-4A6F-AABF-B26DA3E6E3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57D458F-F45E-4A6F-AABF-B26DA3E6E3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57D458F-F45E-4A6F-AABF-B26DA3E6E3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57D458F-F45E-4A6F-AABF-B26DA3E6E3AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076AB0BE-D7EF-4D86-93D3-E67127F91BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076AB0BE-D7EF-4D86-93D3-E67127F91BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076AB0BE-D7EF-4D86-93D3-E67127F91BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076AB0BE-D7EF-4D86-93D3-E67127F91BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2659398-64EA-4708-B8FC-FAEC874C73FA}
+	EndGlobalSection
+EndGlobal
