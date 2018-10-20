@@ -1,6 +1,7 @@
 ﻿using SimpleCrud.Repositories;
 using System.Web.Mvc;
 using SimpleCrud.Entities;
+using SimpleCrud.Models;
 
 namespace SimpleCrud.Controllers
 {
@@ -21,8 +22,8 @@ namespace SimpleCrud.Controllers
 
         public ActionResult Add()
         {
-            var user = new User();
-            return View();
+            var model = new AddUserModel();
+            return View(model);
         }
     }
 }

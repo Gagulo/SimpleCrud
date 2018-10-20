@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SimpleCrud.Entities;
+using SimpleCrud.Models;
 
 namespace SimpleCrud.Repositories
 {
@@ -28,14 +29,28 @@ namespace SimpleCrud.Repositories
         };
 
 
-        public void Add(User user)
+        public void Add(AddUserModel userModel)
         {
+            var user = new User
+            {
+                FirstName = userModel.FirstName,
+                LastName = userModel.LastName,
+                DateOfBirth = userModel.DateOfBirth,
+
+                IsActive = true
+            };
             _users.Add(user);
         }
 
-        public IList<User> GetAllUsers()
+        public IList<UserModel> GetAllUsers()
         {
-            return _users;
+            return _users.Select(u => new UserModel
+            {
+                FullName = string.Format("{0} {1}", u.FirstName, u.LastName),
+                Age = DateTime.Now.Year - u.DateOfBirth.Year,
+                IsActiveAsString = u.IsActive ? "Yes" : "No"
+            })
+            .ToList();
         }
 
         public User GetUser(long id)
