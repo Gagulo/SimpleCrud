@@ -1,4 +1,7 @@
-﻿namespace SimpleCrud.Models
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace SimpleCrud.Models
 {
     public class EditUserModel
     {

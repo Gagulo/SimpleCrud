@@ -30,6 +30,7 @@ namespace SimpleCrud
         public static void AddBindings(IKernel kernel)
         {
             kernel.Bind<IValidator<AddUserModel>>().To<AddUserModelValidator>();
+            kernel.Bind<IValidator<EditUserModel>>().To<EditUserModelValidator>();
             kernel.Bind<IPersonRepository>().To<PersonRepository>();
             kernel.Bind<PersonController>().To<PersonController>();
         }

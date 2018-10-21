@@ -30,8 +30,14 @@ namespace SimpleCrud.Controllers
         [HttpPost]
         public ActionResult Edit(EditUserModel model)
         {
-            _repository.Update(model);
-            return RedirectToAction("Index");
+            Validate(model);
+            if(ModelState.IsValid)
+            {
+                _repository.Update(model);
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
         }
 
         public ActionResult Add()
