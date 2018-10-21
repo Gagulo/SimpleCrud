@@ -1,8 +1,10 @@
-﻿namespace SimpleCrud.Validators
+﻿using System.Collections.Generic;
+
+namespace SimpleCrud.Validators
 {
-    interface IValidator<T>
+    public interface IValidator<TModel>
     {
-        ValidateResult Validate(string key, T param);
+        IEnumerable<ValidateResult> Validate(TModel model);
     }
 
     public class ValidateResult
