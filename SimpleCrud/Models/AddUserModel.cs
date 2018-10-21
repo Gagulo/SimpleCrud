@@ -9,7 +9,13 @@ namespace SimpleCrud.Models
         {
             DateOfBirth = DateTime.Now;
         }
+
+        [Required(ErrorMessage = "Name is required u Dumbass")]
+        [MinLength(3)]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name is required u Dumbass")]
+        [MinLength(3)]
         public string LastName { get; set; }
 
         [DataType(DataType.Date)]

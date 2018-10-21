@@ -5,17 +5,21 @@
     <div class="form-group" style="margin-top: 10px;">
         <label for="FirstName">Name</label>
         @Html.EditorFor(m => m.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName)
     </div>
 
     <div class="form-group">
         <label for="LastName">Last Name</label>
         @Html.EditorFor(m => m.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LastName)
     </div>
 
     <div class="form-group">
         <label for="DateOfBirth">Date of Birth</label>
         @Html.EditorFor(m => m.DateOfBirth, new { @class = "form-control" })
     </div>
+
+    @Html.ValidationSummary()
 
     <input type="submit" class="btn btn-danger" value="Save" />
 }

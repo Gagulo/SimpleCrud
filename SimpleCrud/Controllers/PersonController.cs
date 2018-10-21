@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using SimpleCrud.Entities;
 using SimpleCrud.Models;
+using System;
 
 namespace SimpleCrud.Controllers
 {
@@ -36,9 +37,23 @@ namespace SimpleCrud.Controllers
         [HttpPost]
         public ActionResult Add(AddUserModel model)
         {
-            _repository.Add(model);
 
-            return RedirectToAction("Index");
+            var dateOfBirth = model.DateOfBirth;
+            var now = DateTime.UtcNow;
+
+            var yearsDifference = now.Year - dateOfBirth.Year;
+
+            if(yearsDifference <= 10)
+            {
+                ModelState.AddModelError(nameof(model.DateOfBirth), "U must be older then 10yo.");
+            }
+
+            if(ModelState.IsValid)
+            {
+                _repository.Add(model);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         public ActionResult Delete(long id)
